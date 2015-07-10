@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Directive</title>
+        <script src="js/angular.js"></script>
+    </head>
+    <body ng-app="">
+        <div id="container"
+             ng-init="names=['Data 1','Data 2','Data 3']">
+            <ul>
+                <li ng-repeat="name in names">{{name}}</li>
+            </ul>
+        </div>
+        <br/>
+        <div
+    ng-init="customers=[{name:'Hendro',city:'Salatiga'},
+                        {name:'Yoyok',city:'Ambarawa'},
+                        {name:'Susi',city:'Boyolali'}]">
+        <p>Nama : <input type="text" ng-model="name"/>
+     <li ng-repeat="cust in customers | filter:name
+             | orderBy:'city'">
+         {{cust.name | uppercase}}
+         {{cust.city}}</li>
+        </div>
+    </body>
+</html>
